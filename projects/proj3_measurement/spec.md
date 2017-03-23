@@ -4,13 +4,13 @@ In this project, you'll use three command-line tools to analyze the behavior of 
 
 #### Logistics
 
-- This project is due on Wednesday 11/9 at 11:59pm
-- This project should be completed individually or in pairs (refer to the [course website](https://netsys.github.io/cs168fa16/about.html) for collaboration policies).  As described on the course website, you may not share *code* with any classmates other than your partner.  For this assignment, much of the work will be analyzing and thinking about the measurements that you've made; you are welcome to discuss the findings from your measurements with other students who you are not partnered with for the assignment.
-- The skeleton code for this project is available on [Github](https://github.com/NetSys/cs168_student/blob/master/projects/proj3_measurement). You can download the code manually from that page, or use git.
+- This project is due on Wednesday 04/12 at 11:59pm
+- This project should be completed individually or in pairs.  You may not share *code* with any classmates other than your partner.  For this assignment, much of the work will be analyzing and thinking about the measurements that you've made; you are welcome to discuss the findings from your measurements with other students who you are not partnered with for the assignment.
+- The skeleton code for this project is available on [Github](https://github.com/jultra/cmsc135/tree/master/projects/proj3_measurement). You can download the code manually from that page, or use git.
 
 ##### What should I submit?
 
-- Submit your Python code and JSON data using `ok`. Your code should be Python 2 compatible. In particular, you should submit the following files (described in more detail in later sections):
+- Submit your Python code and JSON data in Piazza. Your code should be Python 2 compatible. In particular, you should submit the following files:
 
   Code:
     - `rtts.py`
@@ -27,8 +27,6 @@ In this project, you'll use three command-line tools to analyze the behavior of 
     - `dns_output_1.json`
     - `dns_output_2.json`
     - `dns_output_other_server.json`
-
-- In addition to submitting your code to `ok`, you should submit a set of short answers and graphs to Gradescope.  The specific short answers and graphs you should generate are listed in the sections that follow.  We will update the link to submit this shortly.  This must be submitted as a PDF; you can create the PDF using whatever tool is most convenient for you.
 
 ##### Provided files
 
@@ -112,7 +110,7 @@ b) Next, we want to take a look at a few websites’ ping behavior in more detai
 2. Questions on experiment b:
    - What are the median RTT and maximum RTT for each website? What loss rate do you observe?
    - Using the plot functions and `rtt_b_raw.json`, please plot a CDF of the RTT for *each* website. You can plot the four CDFs on the same graph. Be sure to include a legend so we know which CDF corresponds to which of the four websites.
-3. In this question, you will analyze the ping times to two websites and compare the results to the expected speed-of-light times. The websites are google.com (located in Mountain View, CA, USA) and zanvarsity.ac.tz (located in Zanzibar, Tanzania). You can use your ping data from experiment b. The distance from Berkeley to Mountain view is 35.23 miles, and the distance from Berkeley to Zanzibar is 9,953.50 miles.
+3. In this question, you will analyze the ping times to two websites and compare the results to the expected speed-of-light times. The websites are google.com (located in Mountain View, CA, USA) and zanvarsity.ac.tz (located in Zanzibar, Tanzania). You can use your ping data from experiment b. The distance from UPVTC to Mountain view is 6962.381 miles, and the distance from UPVTC to Zanzibar is 6025.623 miles.
    - Compare the median ping time to the speed of light time.  What’s the multiplier for each server (calculate as [ping time / speed of light time])?
    - Using one sentence each, list two reasons why the ping time is not equal to the speed of light time.  Plausible but unlikely answers (e.g., “a bear chewed through the wire, causing a long delay) will not receive full credit.
    - [Optional] Repeat #3 for any website you might be curious about. How much route inflation do you observe? This [tool](http://pythonhosted.org/python-geoip/) might be useful in identifying a website’s physical location.
@@ -194,7 +192,7 @@ b) There are many [public route servers](http://www.traceroute.org/#Route%20Serv
 **Short answer questions**
 
 1. Answer the following questions using the results obtained from experiment a.
-   * Which ASes are Berkeley directly connected to?
+   * Which ASes are UPVTC directly connected to?
    * Which traceroute traverses the most number of ASes? How about the least number of ASes?
    * Which websites' routes are load-balanced?
    * Are the observed routes stable over multiple runs? For each website, how many unique routes did you observe?
