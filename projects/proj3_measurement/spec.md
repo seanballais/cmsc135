@@ -120,7 +120,7 @@ b) Next, we want to take a look at a few websites’ ping behavior in more detai
 - Some `ping` implementations seem to exhibit the following behavior -- a timeout message is not printed until the program starts sending the *next* packet.
 Therefore, if a website does not respond to `ping` at all, you will only get 9 output messages when you ping the website 10 times.
 To make sure that you don't miss a timeout message, please try to run the experiments with *one more ping packet* than needed (e.g. for part a, ping each website 11 times instead of 10 times), then parse only the necessary output (e.g. for part a, parse the first 10 RTTs if you get 11 RTTs back).
-- Some Windows machines do not seem to be able to measure RTTs accurately (they do not go past the millisecond precision). Please try to use a machine that does measure accurately (some of the instructional machines, like hive[x].cs.berkeley.edu, should support accurate ping measurements).
+- Some Windows machines do not seem to be able to measure RTTs accurately (they do not go past the millisecond precision). Please try to use a machine that does measure accurately.
 - You don't have to worry about rounding your RTT numbers -- just use the numbers that ping outputs, and convert into floats.
 
 
@@ -178,7 +178,7 @@ Note: Sometimes you will see a particular router repeated *multiple times within
 
 **Experiments**
 
-a) For part a, you will look at the routing behavior to the following websites: google.com, facebook.com, www.berkeley.edu, allspice.lcs.mit.edu, todayhumor.co.kr, www.city.kobe.lg.jp, www.vutbr.cz, zanvarsity.ac.tz. For this experiment, please try to run traceroute from campus. You should run `traceroute.py` 5 times (with 5 packets each time), and each consecutive run should be at least 1 hour apart.
+a) For part a, you will look at the routing behavior to the following websites: google.com, facebook.com, www.upd.edu.ph, allspice.lcs.mit.edu, todayhumor.co.kr, www.city.kobe.lg.jp, www.vutbr.cz, zanvarsity.ac.tz. For this experiment, please try to run traceroute from campus. You should run `traceroute.py` 5 times (with 5 packets each time), and each consecutive run should be at least 1 hour apart.
 You should generate a json file named `tr_a.json`.
 This file should be 5 lines long, where *each line* is a single run of `traceroute.py` on the above websites. You should be able to generate this file by appending output from your script to `tr_a.json`.
 
