@@ -150,9 +150,9 @@ The script should contain two functions:
 
 You can traceroute to a website by running the `traceroute` shell command from Python using the subprocess module:
 
-``` traceroute -a -q 5 google.com ```
+``` traceroute -A -q 5 google.com ```
 
-The option `-a` tells the command to return AS numbers (note that this option may be slightly different on different operating systems), and the option `-q` tells the command how many packets to use.
+The option `-A` tells the command to return AS numbers (note that this option may be slightly different on different operating systems), and the option `-q` tells the command how many packets to use.
 
 Your script should produce json output in the following format: 
 
