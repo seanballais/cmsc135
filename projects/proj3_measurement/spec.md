@@ -9,8 +9,8 @@ In this project, you'll use three command-line tools to analyze the behavior of 
 - The skeleton code for this project is available on [Github](https://github.com/jultra/cmsc135/tree/master/projects/proj3_measurement). You can download the code manually from that page, or use git.
 
 ##### What should I submit?
-
-- Submit your Python code and JSON data in Piazza. Your code should be Python 2 compatible. In particular, you should submit the following files:
+- Aside from the code, you also need to submit your answers to the Short Questions listed under each of the problems below. 
+- Submit your answers to the Short Questions, Python code and JSON data in Piazza. Your code should be Python 2 compatible. In particular, you should submit the following files:
 
   Code:
     - `rtts.py`
