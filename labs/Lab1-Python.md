@@ -1,4 +1,4 @@
-#Lab 1 Python Programming Exercises
+# Lab 1 Python Programming Exercises
 
 In this lab exercise, your task is to write 3 functions in Python given the specifications below. Make sure that your 
 code is compatible with Python 2. This lab exercise will prepare you for the socket programming exercise which you will do next meeting. 
@@ -24,7 +24,7 @@ of the longest one.
 Write a function `is_member(x, a)` that takes a value (i.e. a number, string, etc) `x` and a list of values `a`, and returns `True` if `x` is a member of `a`, `False` otherwise. (Note that this is exactly what the `in` operator does, but for the sake of the exercise you should pretend Python did not have this operator.)
 
 
-##SUBMISSION
+## SUBMISSION
 
 Submit your code as a post in Piazza and place the post under the `labs` folder. Submission should be made at the end of the lab session to get full credit. 
 
