@@ -24,7 +24,7 @@ of the longest one.
 Write a function `is_member(x, a)` that takes a value (i.e. a number, string, etc) `x` and a list of values `a`, and returns `True` if `x` is a member of `a`, `False` otherwise. (Note that this is exactly what the `in` operator does, but for the sake of the exercise you should pretend Python did not have this operator.)
 
 
-####SUBMISSION
+##SUBMISSION
 
 Submit your code as a post in Piazza and place the post under the `labs` folder. Submission should be made at the end of the lab session to get full credit. 
 
