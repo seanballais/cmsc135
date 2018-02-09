@@ -1,13 +1,13 @@
-#Laboratory Exercise 2 - Python OOP
+# Laboratory Exercise 2 - Python OOP
 
 In the previous exercise, you used some of the basic programming constructs in Python in writing your solutions to the programming problems I have given you. For this exercise, you are required to learn some of the basic OOP constructs in Python to write your solution to the problem given below.
 
-##Submission
+## Submission
 
 Once you are done, place your source code in a file called, `lab2_pythonoop_lastname.py`, and send it to me in Piazza. You must submit your solution at the end of the lab session to get full points from this exercise. 
 
 
-###Problem 1 Banking in Python
+### Problem 1 Banking in Python
 
 Write a class called `SavingsAccount` that has the following properties and behaviours (Note that the (-,+) before an identifier denotes the visibility of the property or method):
 
@@ -25,7 +25,7 @@ Write a class called `SavingsAccount` that has the following properties and beha
   - `SavingsAccount(number)`, a call to the constructor with only one parameter should set the value of `balance = number1` and `interest = 0.05`. 
   - `SavingsAccount(number1, number2)`, a call to the constructor with both parameters set should set the value of `balance = number1` and `interest = number2`.
   
- ###Example Test Cases
+ ### Example Test Cases
  
  ```
  > a = SavingsAccount()
