@@ -89,7 +89,7 @@ Here's an example of how your client and server should work.  Suppose two differ
 If a server had been started on port 12345 before the client was run, it should have printed output as follows:
 
     $ python basic_server.py 12345
-    I am a student in CS168. This class is awesome!
+    I am a student in CMSC 135. This class is awesome!
     Why is Shenker so bad at drawing?
  
 
