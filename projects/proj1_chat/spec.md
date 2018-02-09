@@ -82,7 +82,7 @@ In this part of the assignment, it's fine to use blocking sockets.  "Blocking" m
 Here's an example of how your client and server should work.  Suppose two different clients connected sequentially:
 
     $ python basic_client.py localhost 12345
-    I am a student in CS168. This class is awesome!
+    I am a student in CMSC 135. This class is awesome!
     $ python basic_client.py localhost 12345
     Why is Shenker so bad at drawing?
     
