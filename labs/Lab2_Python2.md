@@ -1,10 +1,10 @@
 # Laboratory Exercise 2 - Python OOP
 
-In the previous exercise, you used some of the basic programming constructs in Python in writing your solutions to the programming problems I have given you. For this exercise, you are required to learn some of the basic OOP constructs in Python to write your solution to the problem given below.
+In the previous exercise, you used some of the programming constructs in Python to solve the programming constructs I gave you. For this exercise, you will test your skills on the basic OOP constructs in Python to write the solution of the problem described below.
 
 ## Submission
 
-Once you are done, place your source code in a file called, `lab2_pythonoop_lastname.py`, and send it to me in Piazza. You must submit your solution at the end of the lab session to get full points from this exercise. 
+Once you are done, submit your code inline as a post in Piazza. You must submit your code at the end of the lab session to get full points from this exercise. 
 
 
 ### Problem 1 Banking in Python
