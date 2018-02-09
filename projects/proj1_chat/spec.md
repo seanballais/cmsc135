@@ -7,7 +7,7 @@ This machine problem (and the rest of the exercises in this class) should be imp
 
 #### Logistics
 
-- This project is due on March 1, 2017 at 11:59pm
+- This project is due on March 1, 2018 at 11:59pm
 - This project can be completed in pairs 
 - The skeleton code for this project is available from [here](https://github.com/jultra/cmsc135/tree/master/projects/proj1_chat). You can download the code manually from that page, or use git.
 - You'll submit your code in Piazza. You should submit three (3) files: one named `client.py` , one named `server.py` and one name readme.md. You should not modify or submit `utils.py`. More detailed submission instructions can be found in the [submission details](#submission-details) section. Your readme.md shall contain at least the names of the group members and other information about your solution.
