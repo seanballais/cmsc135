@@ -1,10 +1,10 @@
 # Laboratory Exercise 2 - Python OOP
 
-In the previous exercise, you used some of the programming constructs in Python to solve the programming constructs I gave you. For this exercise, you will test your skills on the basic OOP constructs in Python to write the solution of the problem described below.
+For this exercise, you will test your skills on the basic OOP constructs in Python to write the solution of the problem described below.
 
 ## Submission
 
-Once you are done, submit your code inline as a post in Piazza. You must submit your code at the end of the lab session to get full points from this exercise. 
+Once you are done, submit your code as a post (i.e., inline) in Piazza. You must submit your code at the end of the lab session to get full points from this exercise. 
 
 
 ### Problem 1 Banking in Python
