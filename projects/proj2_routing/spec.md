@@ -32,7 +32,7 @@ The simulator comes with some automated tests, which you can run using `python t
 
 See the [simulator guide](simulator_guide.md) for more details.
 
-## Part 1: Learning Switch
+## Part 1: Learning Switch (Lab Exercise #6)
 
 To get started, you will implement a learning switch, which learns the location of hosts by monitoring traffic. At first, the switch simply floods any packet it receives to all of its neighbors, like a hub.  For each packet it sees, it remembers for the sender `S` the port that the packet came in on. Later, if it receives packets destined to `S`, it only forwards the packet out on the port that packets from `S` previously came in on. This is because if packets from `S` *arrived* on port 3, then port 3 must be able to reach `S` -- you can send *to* `S` via port 3. We've provided a skeleton `learning_switch.py` for you to modify.
 
