@@ -4,10 +4,10 @@ In this assignment, you'll implement distance-vector routing, a distributed rout
 
 #### Logistics
 
-- This project is due on ~~Friday 03/03 at 11:59pm~~ 03/08, Wednesday, 10:00 AM.
+- This project is due on ~~Friday 03/03 at 11:59pm~~ 03/30, Friday, 10:00 AM.
 - This project should be completed individually or in pairs. Additionally, you may share your tests with anyone in the class.
 - The skeleton code for this project is available on [GitHub](https://github.com/jultra/cmsc135/tree/master/projects/proj2_routing). You can download the code manually from that page, or use Git.
-- You'll submit your code using again in `Piazza`. You should submit two files: one named `learning_switch.py` and one named `dv_router.py`. You should write your own tests by adding files to `tests/` and `topos/`, but no need to submit them. Don't modify `simulator.py` or anything in `sim/`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
+- You'll submit your code in `Piazza`. You should submit two files: one named `learning_switch.py` and one named `dv_router.py`. You should write your own tests by adding files to `tests/` and `topos/`, but no need to submit them. Don't modify `simulator.py` or anything in `sim/`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
 
 #### Resources
 
