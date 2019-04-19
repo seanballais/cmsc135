@@ -47,3 +47,16 @@ SERVER_CREATE_REQUIRES_ARGUMENT = \
 # Message sent to a client that sends a regular message before joining any channels.
 SERVER_CLIENT_NOT_IN_CHANNEL = \
   "Not currently in any channel. Must join a channel before sending messages."
+
+# Message sent to a client that uses the "/list" command with an argument.
+SERVER_LIST_NO_ARGUMENTS = \
+  "/list should only be used by itself."
+
+
+def pad_message(message):
+    # We pad the message by 200 since we only expect messages to be
+    # 200 characters long.
+    num_space_pads = min(200 - len(message), 200)
+    message = message.ljust(num_space_pads, ' ')
+
+    return message
