@@ -1,10 +1,10 @@
 # Routing
 
-In this assignment, you'll implement distance-vector routing, a distributed routing algorithm where multiple routers cooperate to transport packets to their destinations efficiently. Your routing algorithm will run on each router within a simulated network. Each router will exchange messages with neighboring routers and hosts to construct a forwarding table. As the network topology changes, your routing algorithm will update the forwarding tables to maintain connectivity.
+In this project, you'll implement distance-vector routing, a distributed routing algorithm where multiple routers cooperate to transport packets to their destinations efficiently. Your routing algorithm will run on each router within a simulated network. Each router will exchange messages with neighboring routers and hosts to construct a forwarding table. As the network topology changes, your routing algorithm will update the forwarding tables to maintain connectivity.
 
 #### Logistics
 
-- This project is due on ~~Friday 03/03 at 11:59pm~~ 03/30, Friday, 10:00 AM.
+- This project is due on ~~Friday 03/03 at 11:59pm~~ 03/30, Saturday, 10:00 AM.
 - This project should be completed individually or in pairs. Additionally, you may share your tests with anyone in the class.
 - The skeleton code for this project is available on [GitHub](https://github.com/jultra/cmsc135/tree/master/projects/proj2_routing). You can download the code manually from that page, or use Git.
 - You'll submit your code in `Piazza`. You should submit two files: one named `learning_switch.py` and one named `dv_router.py`. You should write your own tests by adding files to `tests/` and `topos/`, but no need to submit them. Don't modify `simulator.py` or anything in `sim/`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
@@ -32,7 +32,7 @@ The simulator comes with some automated tests, which you can run using `python t
 
 See the [simulator guide](simulator_guide.md) for more details.
 
-## Part 1: Learning Switch (Lab Exercise #6)
+## Part 1: Learning Switch (Lab Exercise #5)
 
 To get started, you will implement a learning switch, which learns the location of hosts by monitoring traffic. At first, the switch simply floods any packet it receives to all of its neighbors, like a hub.  For each packet it sees, it remembers for the sender `S` the port that the packet came in on. Later, if it receives packets destined to `S`, it only forwards the packet out on the port that packets from `S` previously came in on. This is because if packets from `S` *arrived* on port 3, then port 3 must be able to reach `S` -- you can send *to* `S` via port 3. We've provided a skeleton `learning_switch.py` for you to modify.
 

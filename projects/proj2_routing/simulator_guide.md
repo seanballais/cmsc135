@@ -115,7 +115,9 @@ very helpful.
 NetVis is a visualization and interactivity tool for the network
 simulator. It is written using Processing, which is basically a
 framework for writing visualization tools in Java (with some nice
-shortcuts). Here's how to get NetVis running:
+shortcuts). You can download and use a [ready-to-use executable](https://drive.google.com/file/d/1F6yMCpIIRWRUpTu-cvu054r_-V8gz1zQ/view?usp=sharing) for 
+Netviz or you can compile it yourself using processing. 
+Here's how to get NetVis running:
 
 1.  [Download Processing](https://processing.org/download/?processing) for your
     platform, install it, and run it.
