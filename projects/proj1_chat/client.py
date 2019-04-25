@@ -18,10 +18,11 @@ class BasicClient(object):
 
     def connect(self):
         self.socket.connect((self.address, self.port))
-        self.socket.send(self.name)
+        self.send_message(self.name)
 
     def send_message(self, message):
-        self.socket.send(message)
+        message = self._pad_message(message)
+        self.socket.send(self._pad_message(message))
 
     def run(self):
         try:
@@ -39,7 +40,7 @@ class BasicClient(object):
             for s in readable:
                 if s is sys.stdin:
                     message = sys.stdin.readline().strip()
-                    client.send_message(message)
+                    self.send_message(message)
                 else:
                     # We received a message from the server.
                     data = self._recv_all()
@@ -63,7 +64,8 @@ class BasicClient(object):
         self.socket.setblocking(False)
 
         data = ''
-        while len(data) < utils.MESSAGE_LENGTH:
+        ttl = 12  # Use a TTL to prevent any infinitely expecting data.
+        while (len(data) < utils.MESSAGE_LENGTH) and (ttl > 0):
             try:
                 data_chunk = self.socket.recv(utils.MESSAGE_LENGTH)
             except socket.error:
@@ -71,6 +73,7 @@ class BasicClient(object):
                 break
 
             data += data_chunk
+            ttl -= 1
 
         data = data.strip()
 
@@ -80,6 +83,14 @@ class BasicClient(object):
 
     def _clear_current_line(self):
         print(utils.CLIENT_WIPE_ME, end='')
+
+    def _pad_message(self, message):
+        # We pad the message by 200 since we only expect messages itself to be
+        # 200 characters long.
+        num_space_pads = min(200 - len(message), 200)
+        message = '{}{}'.format(message, ' ' * num_space_pads)
+
+        return message
 
 
 if __name__ == '__main__':

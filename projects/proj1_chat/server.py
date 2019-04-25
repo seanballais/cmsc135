@@ -1,4 +1,3 @@
-import json
 import select
 import socket
 import sys
@@ -11,7 +10,7 @@ def pad_message(message):
     # We pad the message by 200 since we only expect messages itself to be
     # 200 characters long.
     num_space_pads = min(200 - len(message), 200)
-    message = message.ljust(num_space_pads, ' ')
+    message = '{}{}'.format(message, ' ' * num_space_pads)
 
     return message
 
@@ -26,7 +25,7 @@ class Server(object):
         self.socket_id_client_map = dict()
 
     def create_client(self, client_socket):
-        name = client_socket.recv(1024).decode().strip()
+        name = self._recv_all(client_socket).strip()
         if name in self.client_socket_id_map:
             raise ClientNameExistsError()
 
@@ -82,8 +81,7 @@ class Server(object):
                     client = self.socket_id_client_map[id(s)]
 
                     try:
-                        data = s.recv(utils.MESSAGE_LENGTH)
-                        print('Message data size: {}'.format(len(data)))
+                        data = self._recv_all(s)
                     except socket.error:
                         continue
 
@@ -138,20 +136,23 @@ class Server(object):
         self.server_socket.close()
 
     def _recv_all(self, client_socket):
-        client_socket.setblocking(False)
-
+        if id(client_socket) in self.socket_id_client_map:
+            client = self.socket_id_client_map[id(client_socket)]
+            print('Receiving data from client: {}'.format(client.name))
         data = ''
+
+        # Timeout once you get empty messages.
         while len(data) < utils.MESSAGE_LENGTH:
-            try:
-                data_chunk = client_socket.recv(utils.MESSAGE_LENGTH)
-            except socket.error:
+            readable, _, _ = select.select([client_socket], [], [])
+            for s in readable:
+                if s is client_socket:
+                    data_chunk = client_socket.recv(utils.MESSAGE_LENGTH)
+                    data += data_chunk
+
+            if len(data) == 0:
                 break
 
-            data += data_chunk
-
         data = data.strip()
-
-        client_socket.setblocking(True)
 
         return data
 
@@ -183,7 +184,7 @@ class IRCHandler(object):
         try:
             old_channel.remove_client(client)
         except AttributeError:
-            print('Client {} is not subscribed '.format(client.address)
+            print('Client {} is not subscribed '.format(client.name)
                   + 'to any channel, so we ain\'t removing '
                   + 'its \'old channel\'.')
         finally:
@@ -198,7 +199,7 @@ class IRCHandler(object):
         try:
             client.channel.remove_client(client)
         except AttributeError:
-            print('Client {} is not subscribed '.format(client.address)
+            print('Client {} is not subscribed '.format(client.name)
                   + 'to any channel, so we ain\'t removing '
                   + 'its \'old channel\'.')
 
@@ -415,7 +416,8 @@ class Message(object):
 
 class ClientNameExistsError(Exception):
     def __init__(self):
-        Exception.__init__(self, SERVER_CLIENT_NAME_TAKEN_ALREADY)
+        Exception.__init__(self, 'Client name is already taken. '
+                                 + 'Use a different one.')
 
 
 if __name__ == '__main__':
