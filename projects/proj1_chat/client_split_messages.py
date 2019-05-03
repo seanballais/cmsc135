@@ -54,9 +54,11 @@ class ChatClientSplitMessages:
       print utils.CLIENT_CANNOT_CONNECT.format(self.server_host, self.server_port)
       return
 
-    my_name = "SplitMessagesChatClient"
+    my_name = pad_message("SplitMessagesChatClient")
     # Send the server our name.
-    self.send_split_message(client_socket, my_name)
+    #self.send_split_message(client_socket, my_name)
+    client_socket.sendall(my_name[:5])
+    client_socket.sendall(my_name[5:])
 
     # Join a "split_messages" channel. This code assumes that the channel
     # already exists.

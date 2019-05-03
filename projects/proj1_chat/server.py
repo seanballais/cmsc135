@@ -136,20 +136,18 @@ class Server(object):
         self.server_socket.close()
 
     def _recv_all(self, client_socket):
-        if id(client_socket) in self.socket_id_client_map:
-            client = self.socket_id_client_map[id(client_socket)]
-            print('Receiving data from client: {}'.format(client.name))
         data = ''
 
         # Timeout once you get empty messages.
         while len(data) < utils.MESSAGE_LENGTH:
             readable, _, _ = select.select([client_socket], [], [])
+            data_chunk = ''
             for s in readable:
                 if s is client_socket:
                     data_chunk = client_socket.recv(utils.MESSAGE_LENGTH)
                     data += data_chunk
 
-            if len(data) == 0:
+            if len(data_chunk) == 0:
                 break
 
         data = data.strip()
