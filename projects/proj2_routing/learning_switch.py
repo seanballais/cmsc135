@@ -11,6 +11,28 @@ import sim.api as api
 import sim.basics as basics
 
 
+class RoutingTable(object):
+    def __init__(self):
+        self._node_ports = dict()
+
+    def get_node_ports(self, node):
+        return self._node_ports[node]
+
+    def has_seen_node(self, node):
+        return node in self._node_ports
+
+    def remember_node_port(self, node, port):
+        if self.has_seen_node(node):
+            self._node_ports[node] += port
+        else:
+            self._node_ports[node] = [ port ]
+
+    def remove_port(self, port):
+        for k, v in self._node_ports.items():
+            if v == port:
+                del self._node_ports[k]
+
+
 class LearningSwitch(api.Entity):
     """
     A learning switch.
@@ -30,7 +52,7 @@ class LearningSwitch(api.Entity):
         You probablty want to do something in this method.
 
         """
-        pass
+        self._routing_table = RoutingTable()
 
     def handle_link_down(self, port):
         """
@@ -40,7 +62,7 @@ class LearningSwitch(api.Entity):
         valid here.
 
         """
-        pass
+        self._routing_table.remove(port)
 
     def handle_rx(self, packet, in_port):
         """
@@ -52,15 +74,19 @@ class LearningSwitch(api.Entity):
 
         """
 
-        # The source of the packet can obviously be reached via the input port, so
-        # we should "learn" that the source host is out that port.  If we later see
-        # a packet with that host as the *destination*, we know where to send it!
-        # But it's up to you to implement that.  For now, we just implement a
-        # simple hub.
-
         if isinstance(packet, basics.HostDiscoveryPacket):
             # Don't forward discovery messages
             return
 
-        # Flood out all ports except the input port
-        self.send(packet, in_port, flood=True)
+        # Remember the packet's port, if we haven't yet. Its source can be
+        # accessed from there.
+        if not self._routing_table.has_seen_node(packet.src):
+            self._routing_table.remember_node_port(packet.src, in_port)
+
+        # Manage sending of packets to its destination.
+        if self._routing_table.has_seen_node(packet.dst):
+            dest_ports = self._routing_table.get_node_ports(packet.dst)
+            self.send(packet, dest_ports)
+        else:
+            # Flood out all ports except the input port
+            self.send(packet, in_port, flood=True)
